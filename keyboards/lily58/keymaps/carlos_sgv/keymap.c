@@ -8,6 +8,32 @@ enum layer_number {
   _SYMBOL,
 };
 
+// enum macros {
+//   ACCENT
+// };
+//
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   switch (keycode) {
+//     case ACCENT:
+//       if (record->event.pressed) {
+//         SEND_STRING(SS_DOWN(X_LCTL) SS_TAP(X_SPACE) SS_UP(X_LCTL) SS_TAP(X_LBRC) SS_TAP(X_A) SS_DOWN(X_LCTL) SS_TAP(X_SPACE) SS_UP(X_LCTL));
+//         return false;
+//       }
+//
+//     // case CHANGE_LANG:
+//     //     if (record->event.pressed) {
+//     //         SEND_STRING("Macro 1");
+//     //     }
+//     //     return false;
+//   }
+//   return true;
+// }
+//
+// #define ES_GRV  KC_LBRC // ` (dead)
+// #define ES_LBRC ALGR(ES_GRV)  // [
+// #define ES_ACUT KC_QUOT // ´ (dead)
+// #define ES_NTIL KC_SCLN // Ñ
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY
@@ -49,8 +75,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 [_LOWER] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, S(KC_LBRC),             S(KC_RBRC), XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_BSLS,
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_LBRC,                   KC_RBRC, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PDOT,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,             S(KC_RBRC), XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_BSLS,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, LALT(KC_E),          KC_RBRC, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PDOT,
   _______, _______, _______, _______, _______, S(KC_9), XXXXXXX, XXXXXXX, S(KC_0), XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_LGUI,
                              _______, _______, _______,  _______, KC_NUM,  _______, KC_P0 , _______
 ),
@@ -72,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_RAISE] = LAYOUT(
   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                     XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   KC_GRV,   KC_1,   KC_2,    KC_3,    KC_4,    KC_5,                        KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_EQL,
-  S(KC_GRV),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, XXXXXXX, XXXXXXX,
+  S(KC_GRV),XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, RALT(KC_N), XXXXXXX,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
                              _______, KC_LALT, _______,  _______, _______,  _______, _______, _______
 ),
@@ -165,12 +191,12 @@ bool oled_task_user(void) {
 }
 #endif // OLED_ENABLE
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-  if (record->event.pressed) {
-#ifdef OLED_ENABLE
-    set_keylog(keycode, record);
-#endif
-    // set_timelog();
-  }
-  return true;
-}
+// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+//   if (record->event.pressed) {
+// #ifdef OLED_ENABLE
+//     set_keylog(keycode, record);
+// #endif
+//     // set_timelog();
+//   }
+//   return true;
+// }
