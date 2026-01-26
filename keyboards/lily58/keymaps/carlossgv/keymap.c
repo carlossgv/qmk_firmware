@@ -124,7 +124,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Turn off RGB after 5 minutes of no keypresses
 #define RGB_IDLE_TIMEOUT_MS (5 * 60 * 1000UL)
 // Slow rainbow: higher = faster, lower = slower (0-255 typical)
-#define RGB_RAINBOW_SPEED  10
+#define RGB_RAINBOW_SPEED  20
 
 static uint32_t rgb_last_activity = 0;
 
