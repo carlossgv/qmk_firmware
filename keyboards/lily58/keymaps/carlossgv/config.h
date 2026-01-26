@@ -8,6 +8,7 @@
 
 // --- RGB underglow settings ---
 #define RGBLIGHT_ANIMATIONS
+#define RGBLIGHT_EFFECT_RAINBOW_SWIRL
 #define RGBLIGHT_SLEEP
 #define RGBLIGHT_TIMEOUT 300000  // 5 minutes (ms). Example in docs uses ms too.
 

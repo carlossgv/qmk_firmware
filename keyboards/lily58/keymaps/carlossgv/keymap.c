@@ -124,13 +124,16 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 // Turn off RGB after 5 minutes of no keypresses
 #define RGB_IDLE_TIMEOUT_MS (5 * 60 * 1000UL)
 // Slow rainbow: higher = faster, lower = slower (0-255 typical)
-#define RGB_RAINBOW_SPEED  20
+#define RGB_RAINBOW_SPEED  10
 
 static uint32_t rgb_last_activity = 0;
 
 void keyboard_post_init_user(void) {
   // Ensure RGB is enabled even if EEPROM had it off / in solid color
   rgblight_enable_noeeprom();
+
+  // Set a slow rainbow animation
+  rgblight_mode_noeeprom(RGBLIGHT_MODE_RAINBOW_SWIRL);
 
   // Slow speed
   rgblight_set_speed_noeeprom(RGB_RAINBOW_SPEED);
