@@ -11,18 +11,8 @@ enum layer_number {
   _ADJUST,
 };
 
-/*
- * Toggle this depending on what you decide:
- *  - 1: Esc tap, Win (LGUI) hold
- *  - 0: Plain Esc
- */
-#define ESC_IS_WIN_WHEN_HELD 0
-
-#if ESC_IS_WIN_WHEN_HELD
-#  define ESC_KEY MT(MOD_LGUI, KC_ESC)
-#else
-#  define ESC_KEY KC_ESC
-#endif
+// Tap for Esc, hold for Left GUI (Cmd/Win).
+#define ESC_KEY GUI_T(KC_ESC)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
@@ -63,10 +53,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                   `----------------------------'           '------''--------------------'
  */
 [_LOWER] = LAYOUT(
-  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_PSLS,
+  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_P7,   KC_P8,   KC_P9,   KC_P0,
   KC_NUM,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_P4,   KC_P5,   KC_P6,   KC_PAST,
   _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, KC_P1,   KC_P2,   KC_P3,   KC_PMNS,
-  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_P0,   KC_PDOT, XXXXXXX, KC_PPLS,
+  _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_PDOT, XXXXXXX, KC_PPLS,
                              _______, _______, _______,  _______, _______,  _______, XXXXXXX, _______
 ),
 
